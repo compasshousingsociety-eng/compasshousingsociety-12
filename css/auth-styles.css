@@ -1,0 +1,324 @@
+/* ==========================================
+   AUTHENTICATION PAGES STYLES
+   ========================================== */
+
+/* Auth Section */
+.auth-section {
+    /* background-color: var(--bg-secondary); */
+    padding: 80px 0;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+}
+
+.auth-card {
+    /* background-color: var(--bg-card); */
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px var(--shadow-light);
+    transition: var(--transition);
+}
+
+.auth-card:hover {
+    box-shadow: 0 12px 40px var(--shadow-medium);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.auth-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+    font-size: 16px;
+    color: var(--text-primary);
+    opacity: 0.7;
+}
+
+/* Form Styles */
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form .form-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.auth-form .form-control {
+    padding: 14px 18px 14px 45px;
+    font-size: 16px;
+    border: 1px solid var(--shadow-light);
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.auth-form .form-control::placeholder {
+    color: var(--text-primary);
+    opacity: 0.5;
+}
+
+.auth-form .form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 147, 255, 0.1);
+    background-color: var(--bg-primary);
+}
+
+/* Password Toggle */
+.password-toggle {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    opacity: 0.6;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.password-toggle:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.password-toggle:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-check-label {
+    font-size: 14px;
+    color: var(--text-primary);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.form-check-input {
+    cursor: pointer;
+    border-color: var(--shadow-light);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-check-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 147, 255, 0.25);
+}
+
+.forgot-password-link {
+    font-size: 14px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.forgot-password-link:hover {
+    color: var(--text-dark);
+    text-decoration: underline;
+}
+
+[data-theme="dark"] .forgot-password-link:hover {
+    color: var(--white);
+}
+
+/* Social Login */
+.social-login {
+    margin-top: 2rem;
+}
+
+.divider {
+    position: relative;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: var(--shadow-light);
+}
+
+.divider span {
+    position: relative;
+    background-color: var(--bg-card);
+    padding: 0 1rem;
+    font-size: 14px;
+    color: var(--text-primary);
+    opacity: 0.7;
+}
+
+.social-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid var(--shadow-light);
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+.social-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.google-btn:hover {
+    background-color: #DB4437;
+    color: var(--white);
+    border-color: #DB4437;
+}
+
+.facebook-btn:hover {
+    background-color: #1877F2;
+    color: var(--white);
+    border-color: #1877F2;
+}
+
+/* Auth Footer */
+.auth-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--shadow-light);
+}
+
+.auth-footer p {
+    font-size: 14px;
+    color: var(--text-primary);
+    opacity: 0.8;
+    margin: 0;
+}
+
+.auth-link {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.auth-link:hover {
+    color: var(--text-dark);
+    text-decoration: underline;
+}
+
+[data-theme="dark"] .auth-link:hover {
+    color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .auth-title {
+        font-size: 32px;
+    }
+    
+    .auth-card {
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .auth-section {
+        padding: 60px 0;
+    }
+    
+    .auth-title {
+        font-size: 28px;
+    }
+    
+    .auth-card {
+        padding: 35px 25px;
+    }
+    
+    .social-buttons {
+        flex-direction: column;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .auth-card {
+        padding: 30px 20px;
+    }
+    
+    .auth-form .form-control {
+        padding: 12px 16px 12px 40px;
+        font-size: 14px;
+    }
+    
+    .input-icon {
+        left: 14px;
+        font-size: 14px;
+    }
+}

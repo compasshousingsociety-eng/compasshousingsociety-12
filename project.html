@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invest in pre-sales with confidence. Find verified real estate projects from trusted developers in one place.">
+    <meta name="keywords" content="real estate, property investment, pre-sales, verified developers, property listings">
+    <title>Compass Housing Society - Your Trusted Real Estate Investment Partner</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Satoshi Font -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/projects-styles.css">
+</head>
+<body>
+<!-- Add this right after opening <body> tag -->
+<body>
+
+<!-- Page Loader -->
+<div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+        <div class="loader-logo">Compass <span style="color: var(--primary-color);">Housing Society</span></div>
+        <div class="loader-spinner"></div>
+        <p class="loader-text">Loading...</p>
+    </div>
+</div>
+<!-- Theme Toggle Button -->
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+    <i class="fa-solid fa-moon theme-icon" id="moonIcon"></i>
+    <i class="fa-solid fa-sun theme-icon hidden" id="sunIcon"></i>
+</button>
+
+
+
+     <!-- Sticky Header -->
+    <header class="main-header sticky-top">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img
+              src="images/compasshousingsociety.ico"
+              alt="Compass Housing Society"
+              class="logo"
+            />
+          </a>
+          <!-- <span class="logo-text">Compass<span style="color: var(--primary-color);">Housing society</span></span> -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="home2.html">Home 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="aboutus.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="project.html">Project</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="projectdetails.html"
+                  >Project Details</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="register.html">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+              </li>
+              <button
+                class="btn btn-primary"
+                onclick="window.location.href = 'contactus.html'"
+              >
+                Contact Us
+              </button>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Projects Hero/Filter Section -->
+<section class="projects-hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-3 mb-lg-0">
+                <h1 class="page-title">Location</h1>
+            </div>
+            <div class="col-lg-6">
+                <div class="search-filter-wrapper">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="form-control search-input" placeholder="Search" id="projectSearch">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Grid Section -->
+<section class="projects-grid-section">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Project Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop" alt="Luxury Family Home">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">Luxury Family Home</h3>
+                        <p class="project-address">1800-1818 79th St</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 1400
+                            </span>
+                        </div>
+                        <div class="project-price">₹39,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="North Dillard Street">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">North Dillard Street</h3>
+                        <p class="project-address">4330 Bell Shoals Rd</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 2400
+                            </span>
+                        </div>
+                        <div class="project-price">₹25,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&h=400&fit=crop" alt="New Apartment Nice View">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">New Apartment Nice Wiew</h3>
+                        <p class="project-address">42 Avenue O, Brooklyn</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 1460
+                            </span>
+                        </div>
+                        <div class="project-price">₹85,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop" alt="Skyper Pool Apartment">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">Skyper Pool Apartment</h3>
+                        <p class="project-address">1020 Bloomingdale Ave</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 1400
+                            </span>
+                        </div>
+                        <div class="project-price">₹28,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&h=400&fit=crop" alt="Eaton Garth Penthouse">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">Eaton Garth Penthouse</h3>
+                        <p class="project-address">7722 18th Ave, Brooklyn</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 2450
+                            </span>
+                        </div>
+                        <div class="project-price">₹18,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&h=400&fit=crop" alt="Diamond Manor Apartment">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">Diamond Manor Apartment</h3>
+                        <p class="project-address">7802 20th Ave, Brooklyn</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 2450
+                            </span>
+                        </div>
+                        <div class="project-price">₹25,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 7 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop" alt="Skyper Pool Apartment">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">Skyper Pool Apartment</h3>
+                        <p class="project-address">1020 Bloomingdale Ave</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 2500
+                            </span>
+                        </div>
+                        <div class="project-price">₹28,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 8 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop" alt="North Dillard Street">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">North Dillard Street</h3>
+                        <p class="project-address">4330 Bell Shoals Rd</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 2400
+                            </span>
+                        </div>
+                        <div class="project-price">₹25,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 9 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&h=400&fit=crop" alt="New Apartment Nice View">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">New Apartment Nice Wiew</h3>
+                        <p class="project-address">42 Avenue O, Brooklyn</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 1460
+                            </span>
+                        </div>
+                        <div class="project-price">₹85,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 10 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop" alt="Eaton Garth Penthouse">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">Eaton Garth Penthouse</h3>
+                        <p class="project-address">7722 18th Ave, Brooklyn</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 2450
+                            </span>
+                        </div>
+                        <div class="project-price">₹18,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 11 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=600&h=400&fit=crop" alt="Diamond Manor Apartment">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">Diamond Manor Apartment</h3>
+                        <p class="project-address">7802 20th Ave, Brooklyn</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 2450
+                            </span>
+                        </div>
+                        <div class="project-price">₹25,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 12 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop" alt="Luxury Family Home">
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">Luxury Family Home</h3>
+                        <p class="project-address">1800-1818 79th St</p>
+                        <div class="project-features">
+                            <span class="feature-item">
+                                <i class="fa-solid fa-bed"></i> 4
+                            </span>
+                            <span class="feature-item">
+                                <i class="fa-solid fa-ruler-combined"></i> 2500
+                            </span>
+                        </div>
+                        <div class="project-price">₹39,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrapper">
+            <div class="pagination-controls">
+                <button class="pagination-btn prev-btn" aria-label="Previous Page">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <span class="pagination-info">1 of 6</span>
+                <button class="pagination-btn next-btn" aria-label="Next Page">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">
+                        <h3 class="logo-text mb-3">Compass Housing Society</h3>
+                        <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <div class="social-links mt-4">
+                            <a href="#facebook" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#twitter" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#instagram" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#linkedin" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Take a Tour -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <div class="footer-menu">
+                        <h4 class="footer-menu-title">Take a tour</h4>
+                        <ul class="footer-links">
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#product">Product</a></li>
+                            <li><a href="#support">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Our Company -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <div class="footer-menu">
+                        <h4 class="footer-menu-title">Our Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#media">Media</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Subscribe -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-newsletter">
+                        <h4 class="footer-menu-title">Subscribe</h4>
+                        <p class="newsletter-text">Subscribe to get latest property, blog news from us</p>
+                        <form class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Email Address" required>
+                                <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright-text">© 2026. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

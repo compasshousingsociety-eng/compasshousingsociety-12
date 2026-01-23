@@ -1,0 +1,303 @@
+/* ==========================================
+   ABOUT US PAGE STYLES
+   ========================================== */
+
+/* About Hero Section */
+.about-hero-section {
+    background-color: var(--bg-secondary);
+    padding: 60px 0;
+}
+
+/* Team/Agents Section */
+.team-agents-section {
+    /* background-color: var(--bg-primary); */
+    padding: 80px 0;
+}
+
+.agent-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: var(--transition);
+    height: 100%;
+}
+
+.agent-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px var(--shadow-medium);
+}
+
+.agent-image {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+    width: 100%;
+}
+
+.agent-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.agent-card:hover .agent-image img {
+    transform: scale(1.1);
+}
+
+.agent-info {
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.agent-experience {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.agent-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.agent-company {
+    font-size: 16px;
+    color: var(--text-primary);
+    opacity: 0.7;
+    margin-bottom: 1rem;
+}
+
+.agent-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.agent-contact:hover,
+.agent-contact:focus {
+    color: var(--text-dark);
+    transform: translateX(3px);
+}
+
+[data-theme="dark"] .agent-contact:hover {
+    color: var(--white);
+}
+
+.agent-contact i {
+    font-size: 14px;
+}
+
+/* Become Agent CTA Section */
+.become-agent-section {
+    /* background-color: var(--bg-secondary); */
+    padding: 80px 0;
+}
+
+.become-agent-card {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0078d4 100%);
+    padding: 60px 40px;
+    border-radius: 16px;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.become-agent-card::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: -150px;
+    right: -100px;
+}
+
+.cta-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-description {
+    font-size: 18px;
+    color: var(--white);
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.become-agent-card .btn-cta {
+    background-color: var(--white);
+    color: var(--primary-color);
+    position: relative;
+    z-index: 1;
+}
+
+.become-agent-card .btn-cta:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* ==========================================
+   CONTACT US PAGE STYLES
+   ========================================== */
+
+/* Contact Hero Section */
+.contact-hero-section {
+    background-color: var(--bg-secondary);
+    padding: 60px 0;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    background-color: var(--bg-primary);
+    padding: 80px 0;
+}
+
+.contact-greeting {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.contact-tagline {
+    font-size: 18px;
+    color: var(--text-primary);
+    opacity: 0.8;
+}
+
+.contact-form-wrapper {
+    background-color: var(--bg-card);
+    padding: 50px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px var(--shadow-light);
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.form-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 16px;
+    border: 1px solid var(--shadow-light);
+    border-radius: 8px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    transition: var(--transition);
+}
+
+.form-control::placeholder {
+    color: var(--text-primary);
+    opacity: 0.5;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 147, 255, 0.1);
+    background-color: var(--bg-primary);
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form .btn-cta {
+    padding: 16px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .cta-title,
+    .contact-greeting {
+        font-size: 32px;
+    }
+    
+    .agent-image {
+        height: 250px;
+    }
+    
+    .become-agent-card {
+        padding: 50px 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-hero-section,
+    .contact-hero-section {
+        padding: 40px 0;
+    }
+    
+    .team-agents-section,
+    .become-agent-section,
+    .contact-form-section {
+        padding: 60px 0;
+    }
+    
+    .page-title {
+        font-size: 28px;
+    }
+    
+    .cta-title,
+    .contact-greeting {
+        font-size: 28px;
+    }
+    
+    .agent-image {
+        height: 220px;
+    }
+    
+    .contact-form-wrapper {
+        padding: 35px 25px;
+    }
+    
+    .become-agent-card {
+        padding: 40px 25px;
+    }
+}
+
+@media (max-width: 575px) {
+    .agent-info {
+        padding: 20px 15px;
+    }
+    
+    .contact-form-wrapper {
+        padding: 30px 20px;
+    }
+}

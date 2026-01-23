@@ -1,0 +1,636 @@
+/* ==========================================
+   HOME 2 - ADDITIONAL STYLES
+   ========================================== */
+
+/* Hero Section Alternative */
+.hero-section-alt {
+    /* background: linear-gradient(135deg, var(--secondary-color) 0%, #ffffff 100%); */
+    padding: 150px 0 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section-alt::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(0, 147, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* Stats Overview */
+.stats-overview-section {
+    /* background-color: var(--white); */
+    padding: 60px 0;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+}
+
+.stat-box {
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.stat-number-large {
+    font-size: 48px;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label-alt {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* Mission Section */
+.mission-section {
+    /* background-color: var(--secondary-color); */
+    padding: 80px 0;
+}
+
+.mission-text {
+    font-size: 18px;
+    color: var(--text-dark);
+    opacity: 0.85;
+    line-height: 1.8;
+}
+
+/* Services Section */
+.services-section {
+    /* background-color: var(--white); */
+    padding: 80px 0;
+}
+
+.section-description {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.8;
+    line-height: 1.7;
+}
+
+.service-card {
+    background-color: var(--secondary-color);
+    padding: 40px 30px;
+    border-radius: 12px;
+    transition: var(--transition);
+    height: 100%;
+}
+
+.service-card:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 147, 255, 0.2);
+}
+
+.service-icon {
+    margin-bottom: 1.5rem;
+}
+
+.service-icon i {
+    font-size: 48px;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.service-card:hover .service-icon i {
+    color: var(--white);
+}
+
+.service-title {
+    font-size: 20px;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-title {
+    color: var(--white);
+}
+
+.service-description {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.8;
+    margin: 0;
+    transition: var(--transition);
+}
+
+.service-card:hover .service-description {
+    color: var(--white);
+    opacity: 0.95;
+}
+
+/* Why Choose Us Section */
+.why-choose-section {
+    /* background-color: var(--secondary-color); */
+    padding: 80px 0;
+}
+
+.difference-card {
+    background-color: var(--white);
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: var(--transition);
+    height: 100%;
+}
+
+.difference-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.difference-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    transition: var(--transition);
+}
+
+.difference-card:hover .difference-icon {
+    background-color: var(--text-dark);
+    transform: scale(1.1);
+}
+
+.difference-icon i {
+    font-size: 32px;
+    color: var(--white);
+}
+
+.difference-title {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.difference-description {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.8;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Team Section */
+.team-section {
+    /* background-color: var(--white); */
+    padding: 80px 0;
+}
+
+.team-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.team-image img {
+    width: 100%;
+    height: auto;
+    transition: var(--transition);
+}
+
+.team-image:hover img {
+    transform: scale(1.05);
+}
+
+.architect-profile {
+    background-color: var(--secondary-color);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.architect-name {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.architect-experience {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.8;
+    margin: 0;
+}
+
+.team-description {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.85;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+/* Story Section */
+.story-section {
+    /* background-color: var(--secondary-color); */
+    padding: 80px 0;
+}
+
+.story-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    transition: var(--transition);
+}
+
+.story-image:hover img {
+    transform: scale(1.05);
+}
+
+.story-subtitle {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.story-description {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.85;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+/* Blog Section */
+.blog-section {
+    /* background-color: var(--white); */
+    padding: 80px 0;
+}
+
+.link-arrow {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.link-arrow:hover {
+    color: var(--text-dark);
+}
+
+.blog-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.blog-date {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.date-day {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.blog-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-title {
+    font-size: 20px;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.blog-excerpt {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex: 1;
+}
+
+.blog-link {
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.blog-link:hover {
+    text-decoration: underline;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    /* background-color: var(--secondary-color); */
+    padding: 80px 0;
+}
+
+.portfolio-showcase {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+}
+
+.showcase-subtitle {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+}
+
+.showcase-title {
+    font-size: 42px;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.stat-item-inline {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.stat-item-inline .stat-number {
+    font-size: 48px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.stat-item-inline .stat-label {
+    font-size: 16px;
+    color: var(--text-dark);
+    opacity: 0.7;
+}
+
+.testimonial-slider {
+    position: relative;
+}
+
+.testimonial-box {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-quote {
+    font-size: 18px;
+    color: var(--text-dark);
+    opacity: 0.85;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.client-name {
+    font-size: 20px;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin: 0;
+}
+
+.slider-controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.slider-btn {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Responsive Design for Home 2 */
+@media (max-width: 991px) {
+    .hero-section-alt {
+        padding: 100px 0 80px;
+    }
+    
+    .showcase-title {
+        font-size: 32px;
+    }
+    
+    .stat-number-large {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section-alt {
+        padding: 80px 0 60px;
+    }
+    
+    .stat-number-large {
+        font-size: 28px;
+    }
+    
+    .stat-label-alt {
+        font-size: 14px;
+    }
+    
+    .showcase-title {
+        font-size: 28px;
+    }
+    
+    .service-card,
+    .difference-card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* ==========================================
+   HOME 2 - DARK MODE SUPPORT
+   ========================================== */
+
+.hero-section-alt {
+    /* background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%); */
+}
+
+.stats-overview-section {
+    /* background-color: var(--bg-primary); */
+}
+
+.stat-number-large {
+    color: var(--primary-color);
+}
+
+.stat-label-alt {
+    color: var(--text-primary);
+}
+
+.mission-section {
+    /* background-color: var(--bg-secondary); */
+}
+
+.mission-text {
+    color: var(--text-primary);
+}
+
+.services-section {
+    /* background-color: var(--bg-primary); */
+}
+
+.service-card {
+    background-color: var(--bg-secondary);
+}
+
+.service-title {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .service-description {
+    color: var(--text-primary);
+}
+
+.why-choose-section {
+    /* background-color: var(--bg-secondary); */
+}
+
+.difference-card {
+    background-color: var(--bg-card);
+}
+
+.difference-title {
+    color: var(--text-primary);
+}
+
+.difference-description {
+    color: var(--text-primary);
+}
+
+.team-section {
+    /* background-color: var(--bg-primary); */
+}
+
+.architect-profile {
+    background-color: var(--bg-secondary);
+}
+
+.architect-experience {
+    color: var(--text-primary);
+}
+
+.team-description {
+    color: var(--text-primary);
+}
+
+.story-section {
+    /* background-color: var(--bg-secondary); */
+}
+
+.story-description {
+    color: var(--text-primary);
+}
+
+.blog-section {
+    /* background-color: var(--bg-primary); */
+}
+
+.blog-card {
+    background-color: var(--bg-card);
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.blog-card:hover {
+    box-shadow: 0 12px 30px var(--shadow-medium);
+}
+
+.blog-title {
+    color: var(--text-primary);
+}
+
+.blog-excerpt {
+    color: var(--text-primary);
+}
+
+.portfolio-section {
+    /* background-color: var(--bg-secondary); */
+}
+
+.portfolio-showcase {
+    background-color: var(--bg-card);
+}
+
+.showcase-subtitle {
+    color: var(--text-primary);
+}
+
+.stat-item-inline .stat-number {
+    color: var(--text-primary);
+}
+
+.stat-item-inline .stat-label {
+    color: var(--text-primary);
+}
+
+.testimonial-box {
+    background-color: var(--bg-card);
+    box-shadow: 0 4px 15px var(--shadow-light);
+}
+
+.testimonial-quote {
+    color: var(--text-primary);
+}
+
+.client-name {
+    color: var(--text-primary);
+}
+
