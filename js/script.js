@@ -171,3 +171,53 @@ if (window.innerWidth >= 992) {
         });
     });
 }
+
+
+// Projects Search Functionality
+const projectSearch = document.getElementById('projectSearch');
+if (projectSearch) {
+    projectSearch.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+            const title = card.querySelector('.project-title').textContent.toLowerCase();
+            const address = card.querySelector('.project-address').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || address.includes(searchTerm)) {
+                card.closest('.col-lg-4').style.display = 'block';
+            } else {
+                card.closest('.col-lg-4').style.display = 'none';
+            }
+        });
+    });
+}
+
+// Pagination Functionality (Basic)
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const paginationInfo = document.querySelector('.pagination-info');
+
+if (prevBtn && nextBtn && paginationInfo) {
+    let currentPage = 1;
+    const totalPages = 60;
+    
+    nextBtn.addEventListener('click', function() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            updatePagination();
+        }
+    });
+    
+    prevBtn.addEventListener('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            updatePagination();
+        }
+    });
+    
+    function updatePagination() {
+        paginationInfo.textContent = `${String(currentPage).padStart(2, '0')} of ${totalPages}`;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+}

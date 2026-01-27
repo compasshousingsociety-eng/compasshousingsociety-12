@@ -19,6 +19,16 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/about-contact-styles.css">
+    <style>
+        
+        [data-theme="dark"] input::placeholder,
+        [data-theme="dark"] textarea::placeholder,
+        [data-theme="dark"] select::placeholder,
+        [data-theme="dark"] .form-control::placeholder {
+            color: var(--primary-color);
+        }
+
+    </style>
 </head>
 <body>
 <!-- Add this right after opening <body> tag -->
@@ -128,7 +138,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="firstName" class="form-label">First name *</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name" required>
+                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name" required
+                                    pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
+                                title="Only letters and single spaces between words allowed." >
                                 </div>
                             </div>
 
@@ -136,7 +148,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="lastName" class="form-label">Last name *</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name" required>
+                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name" required pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
+                                title="Only letters and single spaces between words allowed.">
                                 </div>
                             </div>
 
@@ -144,7 +157,10 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="email" class="form-label">Email *</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Ex JohnDoe214@gmail.com" required>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Ex JohnDoe214@gmail.com" required inputmode="email" class="form-control"
+                                required pattern="^[A-Za-z0-9._%+-]+@gmail\.com$"
+                                title="Enter a valid email like name@gmail.com"
+                                placeholder="Enter your email here">
                                 </div>
                             </div>
 

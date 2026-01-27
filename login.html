@@ -20,6 +20,116 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/auth-styles.css">
+     <style>
+        body.dark-mode input::placeholder,
+        body.dark-mode textarea::placeholder,
+        body.dark-mode select::placeholder,
+        body.dark input::placeholder,
+        body.dark textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        /* Password Wrapper (if not already added from register page) */
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .password-toggle:hover {
+            color: #495057;
+        }
+
+        .dark-mode .password-toggle {
+            color: #aaa;
+        }
+
+        .dark-mode .password-toggle:hover {
+            color: #fff;
+        }
+
+        /* Success Overlay (if not already added from register page) */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .success-overlay.show {
+            display: flex;
+        }
+
+        .success-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode .success-box {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .success-icon {
+            width: 70px;
+            height: 70px;
+            background: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .success-icon i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .countdown {
+            color: #6c757d;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        .dark-mode .countdown {
+            color: #aaa;
+        }
+
+        /* Modal Dark Mode Support */
+        .dark-mode .modal-content {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .dark-mode .modal-header {
+            border-bottom: 1px solid #333;
+        }
+
+        .dark-mode .btn-close {
+            filter: invert(1);
+        }
+    </style>
 </head>
 
 <body>
@@ -100,80 +210,84 @@
     </header>
 
 
-    <!-- Login Section -->
-    <section class="auth-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-7">
-                    <div class="auth-card">
-                        <div class="auth-header">
-                            <h1 class="auth-title">Welcome Back!</h1>
-                            <p class="auth-subtitle">Login to your account to continue</p>
-                        </div>
-
-                        <form id="loginForm" class="auth-form">
-                            <!-- Email -->
-                            <div class="form-group mb-3">
-                                <label for="loginEmail" class="form-label">Email Address *</label>
-                                <div class="input-with-icon">
-                                    <i class="fa-solid fa-envelope input-icon"></i>
-                                    <input type="email" class="form-control" id="loginEmail" name="email"
-                                        placeholder="Enter your email" required>
-                                </div>
-                            </div>
-
-                            <!-- Password -->
-                            <div class="form-group mb-3">
-                                <label for="loginPassword" class="form-label">Password *</label>
-                                <div class="input-with-icon">
-                                    <i class="fa-solid fa-lock input-icon"></i>
-                                    <input type="password" class="form-control" id="loginPassword" name="password"
-                                        placeholder="Enter your password" required>
-                                    <button type="button" class="password-toggle" id="toggleLoginPassword">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Remember Me & Forgot Password -->
-                            <div class="form-options mb-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="rememberMe">
-                                    <label class="form-check-label" for="rememberMe">
-                                        Remember me
-                                    </label>
-                                </div>
-                                <a href="#forgot-password" class="forgot-password-link">Forgot Password?</a>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary btn-cta w-100 mb-3">Login</button>
-
-                            <!-- Social Login -->
-                            <div class="social-login">
-                                <div class="divider">
-                                    <span>Or continue with</span>
-                                </div>
-                                <div class="social-buttons">
-                                    <button type="button" onclick="window.location.href='https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmyaccount.google.com%2F&dsh=S18144966%3A1769162521913026&ifkv=AXbMIuD2Ac_yN8v3MDppn2gw1GXWL3pLXJpXtvifUgSQh4QrEMGwGQpQuns7PTUz7UsafTy_Fvx8hg&service=accountsettings&flowName=GlifWebSignIn&flowEntry=ServiceLogin'" class="social-btn google-btn">
-                                        <i class="fa-brands fa-google"></i> Google
-                                    </button>
-                                    <button type="button" onclick="window.location.href='https://www.facebook.com/login.php/'" class="social-btn facebook-btn">
-                                        <i class="fa-brands fa-facebook-f"></i> Facebook
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Register Link -->
-                            <div class="auth-footer">
-                                <p>Don't have an account? <a href="register.html" class="auth-link">Register Now</a></p>
-                            </div>
-                        </form>
+    <section class="login-section section-padding">
+    <div class="container">
+        <div class="row justify-content-center g-5">
+            <div class="col-lg-5 animate-slide-fade">
+                <h2 class="section-title text-center">Sign In</h2>
+                <form class="form-login" id="loginForm">
+                    <!-- Email Field -->
+                    <div class="mb-3">
+                        <label for="email"><strong>Email Address *</strong></label>
+                        <input type="email" id="email" name="email" class="form-control" inputmode="email" required
+                            pattern="^[A-Za-z0-9._%+-]+@gmail\.com$"
+                            title="Enter a valid email like name@gmail.com" 
+                            placeholder="Enter your email here" />
                     </div>
+
+                    <!-- Password Field with Toggle -->
+                    <div class="mb-3">
+                        <label for="password"><strong>Password *</strong></label>
+                        <div class="password-wrapper">
+                            <input type="password" class="form-control" id="password" required 
+                                placeholder="Enter your password" style="padding-right: 45px;">
+                            <button type="button" class="password-toggle" id="toggleLoginPassword">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="mb-3 d-flex justify-content-between align-items-center">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">
+                                Remember me
+                            </label>
+                        </div>
+                        <a href="#" class="text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">
+                            Forgot Password?
+                        </a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    
+                    <div class="mt-3 text-center">
+                        <a href="register.html">Don't have an account? Register</a>
+                        <!-- Social Register -->
+                <div class="social-login">
+                  <div class="divider">
+                    <span>Or register with</span>
+                  </div>
+                  <div class="social-buttons">
+                    <button
+                      type="button"
+                      onclick="
+                        window.location.href =
+                          'https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmyaccount.google.com%2F&dsh=S-419015391%3A1769162241802766&ifkv=AXbMIuAqmmQn_5b0pUx-XlJgxffWeJ7NzlTAn5tBqj8gh30HTKxiSbYvEJJ9AGRngVXceRBssDy8yQ&service=accountsettings&flowName=GlifWebSignIn&flowEntry=ServiceLogin'
+                      "
+                      class="social-btn google-btn"
+                    >
+                      <i class="fa-brands fa-google"></i> Google
+                    </button>
+                    <button
+                      type="button"
+                      onclick="
+                        window.location.href =
+                          'https://www.facebook.com/login.php/'
+                      "
+                      class="social-btn facebook-btn"
+                    >
+                      <i class="fa-brands fa-facebook-f"></i> Facebook
+                    </button>
+                  </div>
                 </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -246,6 +360,119 @@
     <!-- Custom JS -->
     <script src="js/script.js"></script>
     <script src="js/auth.js"></script>
+
+    <script>
+        // Password Toggle for Login
+        document.getElementById('toggleLoginPassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // Login Form Submit
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+
+            // Basic validation
+            if (!email || !password) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[A-Za-z0-9._%+-]+@gmail\.com$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid Gmail address');
+                return;
+            }
+
+            // Password minimum length
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters');
+                return;
+            }
+
+            // Store remember me preference
+            if (rememberMe) {
+                localStorage.setItem('rememberMe', 'true');
+                localStorage.setItem('userEmail', email);
+            } else {
+                localStorage.removeItem('rememberMe');
+                localStorage.removeItem('userEmail');
+            }
+
+            // Show success modal and redirect
+            showLoginSuccessModal();
+        });
+
+        // Forgot Password Form
+        const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+        if (forgotPasswordForm) {
+            forgotPasswordForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const resetEmail = document.getElementById('resetEmail').value.trim();
+
+                if (!resetEmail) {
+                    alert('Please enter your email');
+                    return;
+                }
+
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('forgotPasswordModal'));
+                if (modal) modal.hide();
+
+                // Show success message
+                alert('Password reset link has been sent to ' + resetEmail);
+                this.reset();
+            });
+        }
+
+        // Show Login Success Modal
+        function showLoginSuccessModal() {
+            const overlay = document.getElementById('loginSuccessOverlay');
+            const countdownEl = document.getElementById('loginCountdown');
+            overlay.classList.add('show');
+
+            let countdown = 2;
+            const timer = setInterval(() => {
+                countdown--;
+                if (countdownEl) {
+                    countdownEl.textContent = countdown;
+                }
+
+                if (countdown <= 0) {
+                    clearInterval(timer);
+                    // Redirect to dashboard or home page
+                    window.location.href = 'index.html'; // Change to your dashboard URL
+                }
+            }, 1000);
+        }
+
+        // Pre-fill email if "Remember Me" was checked
+        window.addEventListener('load', function () {
+            if (localStorage.getItem('rememberMe') === 'true') {
+                const savedEmail = localStorage.getItem('userEmail');
+                if (savedEmail) {
+                    document.getElementById('email').value = savedEmail;
+                    document.getElementById('rememberMe').checked = true;
+                }
+            }
+        });
+    </script>
 
 </body>
 

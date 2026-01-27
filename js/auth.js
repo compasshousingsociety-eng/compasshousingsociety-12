@@ -126,3 +126,93 @@ facebookBtns.forEach(btn => {
         // In real application: window.location.href = 'your-facebook-oauth-url';
     });
 });
+
+
+// ==========================================
+// CONTACT FORM VALIDATION
+// ==========================================
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        clearErrors();
+        
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        let hasError = false;
+        
+        // Validate first name
+        const firstNameError = validateName(firstName, 'First Name');
+        if (firstNameError) {
+            showError('firstName', firstNameError);
+            document.getElementById('firstName').classList.add('is-invalid');
+            hasError = true;
+        } else {
+            document.getElementById('firstName').classList.remove('is-invalid');
+        }
+        
+        // Validate last name
+        const lastNameError = validateName(lastName, 'Last Name');
+        if (lastNameError) {
+            showError('lastName', lastNameError);
+            document.getElementById('lastName').classList.add('is-invalid');
+            hasError = true;
+        } else {
+            document.getElementById('lastName').classList.remove('is-invalid');
+        }
+        
+        // Validate email
+        const emailError = validateEmail(email);
+        if (emailError) {
+            showError('email', emailError);
+            document.getElementById('email').classList.add('is-invalid');
+            hasError = true;
+        } else {
+            document.getElementById('email').classList.remove('is-invalid');
+        }
+        
+        // Validate subject
+        if (!subject.trim()) {
+            showError('subject', 'Subject is required');
+            document.getElementById('subject').classList.add('is-invalid');
+            hasError = true;
+        } else if (subject.trim().length < 5) {
+            showError('subject', 'Subject must be at least 5 characters');
+            document.getElementById('subject').classList.add('is-invalid');
+            hasError = true;
+        } else {
+            document.getElementById('subject').classList.remove('is-invalid');
+        }
+        
+        // Validate message
+        if (!message.trim()) {
+            showError('message', 'Message is required');
+            document.getElementById('message').classList.add('is-invalid');
+            hasError = true;
+        } else if (message.trim().length < 10) {
+            showError('message', 'Message must be at least 10 characters');
+            document.getElementById('message').classList.add('is-invalid');
+            hasError = true;
+        } else {
+            document.getElementById('message').classList.remove('is-invalid');
+        }
+        
+        if (hasError) {
+            return;
+        }
+        
+        console.log('Contact Form Data:', { 
+            firstName: firstName.trim(), 
+            lastName: lastName.trim(), 
+            email: email.trim(), 
+            subject: subject.trim(), 
+            message: message.trim() 
+        });
+        alert('Thank you for your message! We will get back to you soon.');
+        contactForm.reset();
+    });
+}

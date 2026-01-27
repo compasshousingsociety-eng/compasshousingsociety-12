@@ -30,6 +30,142 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/auth-styles.css" />
+    <style>
+        body.dark-mode input::placeholder,
+        body.dark-mode textarea::placeholder,
+        body.dark-mode select::placeholder,
+        body.dark input::placeholder,
+        body.dark textarea::placeholder {
+            color: var(--text-secondary);
+        }
+
+        /* Password Strength Styles */
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .password-toggle:hover {
+            color: #495057;
+        }
+
+        .strength-meter {
+            height: 5px;
+            background: #e9ecef;
+            border-radius: 3px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .strength-fill.weak { width: 33%; background: #dc3545; }
+        .strength-fill.medium { width: 66%; background: #ffc107; }
+        .strength-fill.strong { width: 100%; background: #28a745; }
+
+        .strength-text {
+            font-size: 0.875rem;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .strength-text.weak { color: #dc3545; }
+        .strength-text.medium { color: #ffc107; }
+        .strength-text.strong { color: #28a745; }
+
+        .password-requirements {
+            margin-top: 10px;
+            font-size: 0.75rem;
+        }
+
+        .requirement {
+            display: block;
+            color: #6c757d;
+            margin-bottom: 3px;
+        }
+
+        .requirement.met {
+            color: #28a745;
+        }
+
+        .requirement i {
+            width: 15px;
+        }
+
+        /* Success Modal */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .success-overlay.show {
+            display: flex;
+        }
+
+        .success-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode .success-box {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .success-icon {
+            width: 70px;
+            height: 70px;
+            background: #28a745;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .success-icon i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .countdown {
+            color: #6c757d;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        .dark-mode .countdown {
+            color: #aaa;
+        }
+    </style>
   </head>
 
   <body>
@@ -116,188 +252,71 @@
       </nav>
     </header>
 
-    <!-- Register Section -->
-    <section class="auth-section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6 col-md-8">
-            <div class="auth-card">
-              <div class="auth-header">
-                <h1 class="auth-title">Create Account</h1>
-                <p class="auth-subtitle">
-                  Join us today and explore exclusive properties
-                </p>
-              </div>
+     <section class="login-section section-padding">
+        <div class="container">
+            <div class="row justify-content-center g-5">
+                <div class="col-lg-5 animate-slide-fade">
+                    <h2 class="section-title text-center">Create an Account</h2>
+                    <form class="form-register" id="registerForm">
+                        <!-- Name Field -->
+                        <div class="mb-3">
+                            <label for="name"><strong>Enter Name *</strong></label>
+                            <input type="text" id="name" name="name" class="form-control"
+                                placeholder="Enter your Name here" required pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
+                                title="Only letters and single spaces between words allowed.">
+                        </div>
 
-              <form id="registerForm" class="auth-form">
-                <div class="row g-3">
-                  <!-- Full Name -->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="firstName" class="form-label"
-                        >First Name *</label
-                      >
-                      <div class="input-with-icon">
-                        <i class="fa-solid fa-user input-icon"></i>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="firstName"
-                          name="firstName"
-                          placeholder="Enter first name"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
+                        <!-- Email Field -->
+                        <div class="mb-3">
+                            <label for="email"><strong>Email Address *</strong></label>
+                            <input type="email" id="email" name="email" inputmode="email" class="form-control"
+                                required pattern="^[A-Za-z0-9._%+-]+@gmail\.com$"
+                                title="Enter a valid email like name@gmail.com"
+                                placeholder="Enter your email here" />
+                        </div>
 
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="lastName" class="form-label"
-                        >Last Name *</label
-                      >
-                      <div class="input-with-icon">
-                        <i class="fa-solid fa-user input-icon"></i>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="lastName"
-                          name="lastName"
-                          placeholder="Enter last name"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
+                        <!-- Password Field with Strength Meter -->
+                        <div class="mb-3">
+                            <label for="password"><strong>Password *</strong></label>
+                            <div class="password-wrapper">
+                                <input type="password" class="form-control" id="password" required 
+                                    placeholder="Create a strong password" style="padding-right: 45px;">
+                                <button type="button" class="password-toggle" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Strength Meter -->
+                            <div class="strength-meter">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <small class="strength-text" id="strengthText"></small>
 
-                  <!-- Email -->
-                  <div class="col-12">
-                    <div class="form-group">
-                      <label for="registerEmail" class="form-label"
-                        >Email Address *</label
-                      >
-                      <div class="input-with-icon">
-                        <i class="fa-solid fa-envelope input-icon"></i>
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="registerEmail"
-                          name="email"
-                          placeholder="Enter your email"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
+                            <!-- Requirements Checklist -->
+                            <div class="password-requirements">
+                                <small class="requirement" id="req-length">
+                                    <i class="fas fa-circle"></i> At least 8 characters
+                                </small>
+                                <small class="requirement" id="req-upper">
+                                    <i class="fas fa-circle"></i> One uppercase letter
+                                </small>
+                                <small class="requirement" id="req-lower">
+                                    <i class="fas fa-circle"></i> One lowercase letter
+                                </small>
+                                <small class="requirement" id="req-number">
+                                    <i class="fas fa-circle"></i> One number
+                                </small>
+                                <small class="requirement" id="req-special">
+                                    <i class="fas fa-circle"></i> One special character (!@#$%^&*)
+                                </small>
+                            </div>
+                        </div>
 
-                  <!-- Phone -->
-                  <div class="col-12">
-                    <div class="form-group">
-                      <label for="phone" class="form-label"
-                        >Phone Number *</label
-                      >
-                      <div class="input-with-icon">
-                        <i class="fa-solid fa-phone input-icon"></i>
-                        <input
-                          type="tel"
-                          class="form-control"
-                          id="phone"
-                          name="phone"
-                          placeholder="Enter your phone number"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Password -->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="registerPassword" class="form-label"
-                        >Password *</label
-                      >
-                      <div class="input-with-icon">
-                        <i class="fa-solid fa-lock input-icon"></i>
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="registerPassword"
-                          name="password"
-                          placeholder="Create password"
-                          required
-                        />
-                        <button
-                          type="button"
-                          class="password-toggle"
-                          id="toggleRegisterPassword"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Confirm Password -->
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="confirmPassword" class="form-label"
-                        >Confirm Password *</label
-                      >
-                      <div class="input-with-icon">
-                        <i class="fa-solid fa-lock input-icon"></i>
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="confirmPassword"
-                          name="confirmPassword"
-                          placeholder="Confirm password"
-                          required
-                        />
-                        <button
-                          type="button"
-                          class="password-toggle"
-                          id="toggleConfirmPassword"
-                        >
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Terms & Conditions -->
-                  <div class="col-12">
-                    <div class="form-check mb-3">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="agreeTerms"
-                        required
-                      />
-                      <label class="form-check-label" for="agreeTerms">
-                        I agree to the
-                        <a href="#terms" class="auth-link"
-                          >Terms & Conditions</a
-                        >
-                        and
-                        <a href="#privacy" class="auth-link"
-                          >Privacy Policy *</a
-                        >
-                      </label>
-                    </div>
-                  </div>
-
-                  <!-- Submit Button -->
-                  <div class="col-12">
-                    <button
-                      type="submit"
-                      class="btn btn-primary btn-cta w-100 mb-3"
-                    >
-                      Create Account
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Social Register -->
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                        <div class="mt-3 text-center">
+                            <a href="login.html">Already have an account? Login</a>
+                        </div>
+                        <!-- Social Register -->
                 <div class="social-login">
                   <div class="divider">
                     <span>Or register with</span>
@@ -325,20 +344,24 @@
                     </button>
                   </div>
                 </div>
-
-                <!-- Login Link -->
-                <div class="auth-footer">
-                  <p>
-                    Already have an account?
-                    <a href="login.html" class="auth-link">Login Here</a>
-                  </p>
+                    </form>
                 </div>
-              </form>
             </div>
-          </div>
         </div>
-      </div>
     </section>
+
+    <!-- Success Modal -->
+    <div class="success-overlay" id="successOverlay">
+        <div class="success-box">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h4>Account Created Successfully!</h4>
+            <p>Your account has been created. Redirecting to login page...</p>
+            <p class="countdown">Redirecting in <span id="countdown">3</span> seconds</p>
+            <a href="login.html" class="btn btn-primary mt-3">Go to Login Now</a>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -411,5 +434,129 @@
     <!-- Custom JS -->
     <script src="js/script.js"></script>
     <script src="js/auth.js"></script>
+    <script>
+        // Password Toggle
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
+        // Password Strength Checker
+        const passwordInput = document.getElementById('password');
+        const strengthFill = document.getElementById('strengthFill');
+        const strengthText = document.getElementById('strengthText');
+        const requirements = {
+            length: document.getElementById('req-length'),
+            upper: document.getElementById('req-upper'),
+            lower: document.getElementById('req-lower'),
+            number: document.getElementById('req-number'),
+            special: document.getElementById('req-special')
+        };
+
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            let strength = 0;
+            
+            // Check requirements
+            const checks = {
+                length: password.length >= 8,
+                upper: /[A-Z]/.test(password),
+                lower: /[a-z]/.test(password),
+                number: /[0-9]/.test(password),
+                special: /[!@#$%^&*(),.?":{}|<>]/.test(password)
+            };
+            
+            // Update requirement styles
+            Object.keys(checks).forEach(key => {
+                if (checks[key]) {
+                    requirements[key].classList.add('met');
+                    strength++;
+                } else {
+                    requirements[key].classList.remove('met');
+                }
+            });
+            
+            // Update strength meter
+            strengthFill.className = 'strength-fill';
+            strengthText.className = 'strength-text';
+            
+            if (password.length === 0) {
+                strengthText.textContent = '';
+            } else if (strength <= 2) {
+                strengthFill.classList.add('weak');
+                strengthText.classList.add('weak');
+                strengthText.textContent = 'Weak password';
+            } else if (strength <= 4) {
+                strengthFill.classList.add('medium');
+                strengthText.classList.add('medium');
+                strengthText.textContent = 'Medium password';
+            } else {
+                strengthFill.classList.add('strong');
+                strengthText.classList.add('strong');
+                strengthText.textContent = 'Strong password';
+            }
+        });
+
+        // Form Validation & Submit
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            
+            // Validate password strength
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long');
+                return;
+            }
+            if (!/[A-Z]/.test(password)) {
+                alert('Password must contain at least one uppercase letter');
+                return;
+            }
+            if (!/[a-z]/.test(password)) {
+                alert('Password must contain at least one lowercase letter');
+                return;
+            }
+            if (!/[0-9]/.test(password)) {
+                alert('Password must contain at least one number');
+                return;
+            }
+            if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+                alert('Password must contain at least one special character');
+                return;
+            }
+            
+            // Show success modal
+            showSuccessModal();
+        });
+
+        function showSuccessModal() {
+            const overlay = document.getElementById('successOverlay');
+            const countdownEl = document.getElementById('countdown');
+            overlay.classList.add('show');
+            
+            let countdown = 3;
+            const timer = setInterval(() => {
+                countdown--;
+                countdownEl.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(timer);
+                    window.location.href = 'login.html';
+                }
+            }, 1000);
+        }
+    </script>
   </body>
 </html>
