@@ -1041,6 +1041,11 @@ body {
     color: var(--primary-color);
 }
 
+[dark-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active {
+    color: var(--primary-color);
+}
+
 .hero-section {
     /* background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%); */
 }

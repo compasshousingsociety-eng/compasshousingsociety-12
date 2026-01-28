@@ -31,8 +31,7 @@
     </style>
 </head>
 <body>
-<!-- Add this right after opening <body> tag -->
-<body>
+ 
 
 <!-- Page Loader -->
 <div class="page-loader" id="pageLoader">
@@ -132,15 +131,25 @@
                 </div>
 
                 <div class="contact-form-wrapper">
-                    <form id="contactForm" class="contact-form">
+                    <form id="contactForm" class="contact-form" novalidate>
                         <div class="row g-4">
                             <!-- First Name -->
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="firstName" class="form-label">First name *</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name" required
-                                    pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
-                                title="Only letters and single spaces between words allowed." >
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="firstName" 
+                                        name="firstName" 
+                                        placeholder="First name" 
+                                        required
+                                        pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$"
+                                        title="Only letters allowed. No spaces at start or end."
+                                    >
+                                    <div class="invalid-feedback">
+                                        Please enter a valid first name (letters only, no leading/trailing spaces).
+                                    </div>
                                 </div>
                             </div>
 
@@ -148,8 +157,19 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="lastName" class="form-label">Last name *</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last name" required pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
-                                title="Only letters and single spaces between words allowed.">
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="lastName" 
+                                        name="lastName" 
+                                        placeholder="Last name" 
+                                        required 
+                                        pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$"
+                                        title="Only letters allowed. No spaces at start or end."
+                                    >
+                                    <div class="invalid-feedback">
+                                        Please enter a valid last name (letters only, no leading/trailing spaces).
+                                    </div>
                                 </div>
                             </div>
 
@@ -157,10 +177,20 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="email" class="form-label">Email *</label>
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Ex JohnDoe214@gmail.com" required inputmode="email" class="form-control"
-                                required pattern="^[A-Za-z0-9._%+-]+@gmail\.com$"
-                                title="Enter a valid email like name@gmail.com"
-                                placeholder="Enter your email here">
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="email" 
+                                        name="email" 
+                                        placeholder="Ex JohnDoe214@gmail.com" 
+                                        required 
+                                        inputmode="email"
+                                        pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+                                        title="Enter a valid email address with no spaces"
+                                    >
+                                    <div class="invalid-feedback">
+                                        Please enter a valid email address with no spaces.
+                                    </div>
                                 </div>
                             </div>
 
@@ -168,7 +198,17 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="subject" class="form-label">What can we help you with ? *</label>
-                                    <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="subject" 
+                                        name="subject" 
+                                        placeholder="Subject" 
+                                        required
+                                    >
+                                    <div class="invalid-feedback">
+                                        Please enter a subject.
+                                    </div>
                                 </div>
                             </div>
 
@@ -176,7 +216,17 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label for="message" class="form-label visually-hidden">Message *</label>
-                                    <textarea class="form-control" id="message" name="message" rows="6" placeholder="Type here your message" required></textarea>
+                                    <textarea 
+                                        class="form-control" 
+                                        id="message" 
+                                        name="message" 
+                                        rows="6" 
+                                        placeholder="Type here your message" 
+                                        required
+                                    ></textarea>
+                                    <div class="invalid-feedback">
+                                        Please enter your message.
+                                    </div>
                                 </div>
                             </div>
 
@@ -191,6 +241,7 @@
         </div>
     </div>
 </section>
+
 
 
 
@@ -267,5 +318,97 @@
     
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+    <script>
+        // Contact Form Validation
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        // Add input event listeners for real-time validation
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const email = document.getElementById('email');
+        
+        // Trim whitespace on blur for all text inputs
+        [firstName, lastName, email].forEach(input => {
+            if (input) {
+                input.addEventListener('blur', function() {
+                    this.value = this.value.trim();
+                });
+                
+                // Prevent leading spaces
+                input.addEventListener('input', function(e) {
+                    if (this.value.startsWith(' ')) {
+                        this.value = this.value.trimStart();
+                    }
+                });
+            }
+        });
+        
+        // Form submission validation
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Remove was-validated class first
+            contactForm.classList.remove('was-validated');
+            
+            let isValid = true;
+            
+            // Validate First Name
+            const firstNameValue = firstName.value.trim();
+            const namePattern = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
+            
+            if (!firstNameValue || !namePattern.test(firstNameValue)) {
+                firstName.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                firstName.classList.remove('is-invalid');
+                firstName.classList.add('is-valid');
+            }
+            
+            // Validate Last Name
+            const lastNameValue = lastName.value.trim();
+            
+            if (!lastNameValue || !namePattern.test(lastNameValue)) {
+                lastName.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                lastName.classList.remove('is-invalid');
+                lastName.classList.add('is-valid');
+            }
+            
+            // Validate Email
+            const emailValue = email.value.trim();
+            const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+            
+            // Check for spaces in email
+            if (!emailValue || !emailPattern.test(emailValue) || emailValue.includes(' ')) {
+                email.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                email.classList.remove('is-invalid');
+                email.classList.add('is-valid');
+            }
+            
+            // If all valid, submit the form
+            if (isValid) {
+                // Update trimmed values
+                firstName.value = firstNameValue;
+                lastName.value = lastNameValue;
+                email.value = emailValue;
+                
+                // Add your form submission logic here
+                alert('Form submitted successfully!');
+                // contactForm.submit(); // Uncomment when ready to actually submit
+                contactForm.reset();
+                contactForm.querySelectorAll('.is-valid').forEach(el => el.classList.remove('is-valid'));
+            } else {
+                contactForm.classList.add('was-validated');
+            }
+        });
+    }
+});
+
+    </script>
 </body>
 </html>
