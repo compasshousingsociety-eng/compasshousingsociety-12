@@ -203,30 +203,30 @@ if (projectSearch) {
 }
 
 // Pagination Functionality (Basic)
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-const paginationInfo = document.querySelector('.pagination-info');
+// const prevBtn = document.querySelector('.prev-btn');
+// const nextBtn = document.querySelector('.next-btn');
+// const paginationInfo = document.querySelector('.pagination-info');
 
-if (prevBtn && nextBtn && paginationInfo) {
-    let currentPage = 1;
-    const totalPages = 2;
+// if (prevBtn && nextBtn && paginationInfo) {
+//     let currentPage = 1;
+//     const totalPages = 2;
     
-    nextBtn.addEventListener('click', function() {
-        if (currentPage < totalPages) {
-            currentPage++;
-            updatePagination();
-        }
-    });
+//     nextBtn.addEventListener('click', function() {
+//         if (currentPage < totalPages) {
+//             currentPage++;
+//             updatePagination();
+//         }
+//     });
     
-    prevBtn.addEventListener('click', function() {
-        if (currentPage > 1) {
-            currentPage--;
-            updatePagination();
-        }
-    });
+//     prevBtn.addEventListener('click', function() {
+//         if (currentPage > 1) {
+//             currentPage--;
+//             updatePagination();
+//         }
+//     });
     
-    function updatePagination() {
-        paginationInfo.textContent = `${String(currentPage).padStart(2, '0')} of ${totalPages}`;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-}
+//     function updatePagination() {
+//         paginationInfo.textContent = `${String(currentPage).padStart(2, '0')} of ${totalPages}`;
+//         window.scrollTo({ top: 0, behavior: 'smooth' });
+//     }
+// }
