@@ -111,21 +111,21 @@ togglePasswordVisibility('confirmPassword', 'toggleConfirmPassword');
 // ==========================================
 // SOCIAL LOGIN HANDLERS
 // ==========================================
-const googleBtns = document.querySelectorAll('.google-btn');
-googleBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        alert('Google login will be implemented with OAuth 2.0');
-        // In real application: window.location.href = 'your-google-oauth-url';
-    });
-});
+// const googleBtns = document.querySelectorAll('.google-btn');
+// googleBtns.forEach(btn => {
+//     btn.addEventListener('click', function() {
+//         alert('Google login will be implemented with OAuth 2.0');
+//         // In real application: window.location.href = 'your-google-oauth-url';
+//     });
+// });
 
-const facebookBtns = document.querySelectorAll('.facebook-btn');
-facebookBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        alert('Facebook login will be implemented with Facebook SDK');
-        // In real application: window.location.href = 'your-facebook-oauth-url';
-    });
-});
+// const facebookBtns = document.querySelectorAll('.facebook-btn');
+// facebookBtns.forEach(btn => {
+//     btn.addEventListener('click', function() {
+//         alert('Facebook login will be implemented with Facebook SDK');
+//         // In real application: window.location.href = 'your-facebook-oauth-url';
+//     });
+// });
 
 
 // ==========================================

@@ -209,7 +209,7 @@ const paginationInfo = document.querySelector('.pagination-info');
 
 if (prevBtn && nextBtn && paginationInfo) {
     let currentPage = 1;
-    const totalPages = 60;
+    const totalPages = 2;
     
     nextBtn.addEventListener('click', function() {
         if (currentPage < totalPages) {
