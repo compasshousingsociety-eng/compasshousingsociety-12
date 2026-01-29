@@ -147,30 +147,39 @@ propertyCards.forEach(card => {
     observer.observe(card);
 });
 
-// Mobile Menu Close on Link Click
-const navbarCollapse = document.querySelector('.navbar-collapse');
-const navbarToggler = document.querySelector('.navbar-toggler');
+// // Mobile Menu Close on Link Click
+// const navbarCollapse = document.querySelector('.navbar-collapse');
+// const navbarToggler = document.querySelector('.navbar-toggler');
 
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
-            navbarToggler.click();
-        }
-    });
-});
+// navLinks.forEach(link => {
+//     link.addEventListener('click', () => {
+//         if (window.innerWidth < 992 && navbarCollapse.classList.contains('show')) {
+//             navbarToggler.click();
+//         }
+//     });
+// });
 
 
-// Dropdown hover for desktop only
-if (window.innerWidth >= 992) {
-    document.querySelectorAll('.dropdown').forEach(dropdown => {
-        dropdown.addEventListener('mouseenter', function() {
-            this.querySelector('.dropdown-menu').classList.add('show');
-        });
-        dropdown.addEventListener('mouseleave', function() {
-            this.querySelector('.dropdown-menu').classList.remove('show');
-        });
-    });
-}
+// // Dropdown hover for desktop only
+// if (window.innerWidth >= 992) {
+//     document.querySelectorAll('.dropdown').forEach(dropdown => {
+//         dropdown.addEventListener('mouseenter', function() {
+//             this.querySelector('.dropdown-menu').classList.add('show');
+//         });
+//         dropdown.addEventListener('mouseleave', function() {
+//             this.querySelector('.dropdown-menu').classList.remove('show');
+//         });
+//     });
+// } else {
+//     // Mobile: Let Bootstrap handle dropdown with data-bs-toggle
+//     document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+//         toggle.addEventListener('click', function(e) {
+//             e.preventDefault();
+//             const menu = this.nextElementSibling;
+//             menu.classList.toggle('show');
+//         });
+//     });
+// }
 
 
 // Projects Search Functionality

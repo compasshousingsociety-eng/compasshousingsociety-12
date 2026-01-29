@@ -5,7 +5,7 @@
 /* About Hero Section */
 .about-hero-section {
     background-color: var(--bg-secondary);
-    padding: 60px 0;
+    padding: 10px 0;
 }
 
 /* Team/Agents Section */
@@ -104,7 +104,7 @@
 /* Become Agent CTA Section */
 .become-agent-section {
     /* background-color: var(--bg-secondary); */
-    padding: 80px 0;
+    padding: 10px 0;
 }
 
 .become-agent-card {
@@ -165,13 +165,13 @@
 /* Contact Hero Section */
 .contact-hero-section {
     background-color: var(--bg-secondary);
-    padding: 60px 0;
+    padding: 10px 0;
 }
 
 /* Contact Form Section */
 .contact-form-section {
     background-color: var(--bg-primary);
-    padding: 80px 0;
+    padding: 10px 0;
 }
 
 .contact-greeting {

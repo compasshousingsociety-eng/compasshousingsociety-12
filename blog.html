@@ -73,20 +73,37 @@
               <li class="nav-item">
                 <a class="nav-link active" href="blog.html">Blog</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="project.html">Project</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="projectdetails.html"
-                  >Project Details</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="register.html">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
-              </li>
+              <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Services
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="services.html">All Services</a></li>
+    <li><a class="dropdown-item" href="servicedetails.html">Service Details</a></li>
+  </ul>
+</li>
+              <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Error Pages
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="404.html">404</a></li>
+    <li><a class="dropdown-item" href="page-not-found.html">Page Not Found</a></li>
+  </ul>
+</li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Account
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="register.html">Register</a></li>
+    <li><a class="dropdown-item" href="login.html">Login</a></li>
+  </ul>
+</li>
+
+
+              
               <button
                 class="btn btn-primary"
                 onclick="window.location.href = 'contactus.html'"
@@ -108,7 +125,7 @@
                 <h1 class="page-title">Our Blogs</h1>
             </div>
             <div class="col-lg-6 text-lg-end">
-                <a href="#all-blogs" class="view-all-link">View All →</a>
+                <a href="services.html" class="view-all-link">View All →</a>
             </div>
         </div>
     </div>
@@ -117,7 +134,7 @@
 <!-- Blog Grid Section -->
 <section class="blog-grid-section">
     <div class="container">
-        <div class="row g-4">
+        <div class="row">
             <!-- Blog Card 1 -->
             <div class="col-lg-4 col-md-6">
                 <div class="blog-post-card">
@@ -425,7 +442,7 @@
                         <ul class="footer-links">
                             <li><a href="aboutus.html">About Us</a></li>
                             <li><a href="blog.html">Blog</a></li>
-                            <li><a href="project.html">Media</a></li>
+                            <li><a href="services.html">Media</a></li>
                             <li><a href="contactus.html">Contact Us</a></li>
                         </ul>
                     </div>

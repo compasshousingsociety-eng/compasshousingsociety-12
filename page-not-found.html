@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Invest in pre-sales with confidence. Find verified real estate projects from trusted developers in one place.">
-    <meta name="keywords" content="real estate, property investment, pre-sales, verified developers, property listings">
-    <title>Compass Housing Society - Your Trusted Real Estate Investment Partner</title>
-    
+    <meta name="description"
+        content="Login to your Compass Housing Society account to access exclusive property listings and services.">
+    <title>Login - Compass Housing Society</title>
+
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Satoshi Font -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/about-contact-styles.css">
+    <link rel="stylesheet" href="css/auth-styles.css">
+     
 </head>
+
 <body>
- 
 
-<!-- Page Loader -->
-<div class="page-loader" id="pageLoader">
-    <div class="loader-content">
-        <div class="loader-logo">Compass <span style="color: var(--primary-color);">Housing Society</span></div>
-        <div class="loader-spinner"></div>
-        <p class="loader-text">Loading...</p>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">Compass<span style="color: var(--primary-color);">Housing Society</span></div>
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Loading...</p>
+        </div>
     </div>
-</div>
-<!-- Theme Toggle Button -->
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
-    <i class="fa-solid fa-moon theme-icon" id="moonIcon"></i>
-    <i class="fa-solid fa-sun theme-icon hidden" id="sunIcon"></i>
-</button>
 
-
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+        <i class="fa-solid fa-moon theme-icon" id="moonIcon"></i>
+        <i class="fa-solid fa-sun theme-icon hidden" id="sunIcon"></i>
+    </button>
 
     <!-- Sticky Header -->
     <header class="main-header sticky-top">
@@ -68,7 +69,7 @@
                 <a class="nav-link" href="home2.html">Home 2</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="aboutus.html">About Us</a>
+                <a class="nav-link" href="aboutus.html">About Us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="blog.html">Blog</a>
@@ -88,7 +89,7 @@
   </a>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="404.html">404</a></li>
-    <li><a class="dropdown-item" href="page-not-found.html">Page Not Found</a></li>
+    <li><a class="dropdown-item active" href="page-not-found.html">Page Not Found</a></li>
   </ul>
 </li>
 
@@ -118,110 +119,109 @@
 
 
 
-<!-- About Hero Section -->
-<section class="about-hero-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <h1 class="page-title">About Us</h1>
+<div class="container">
+    <div class="row min-vh-100 align-items-center justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-center">
+            
+            <!-- Icon/Illustration -->
+            <div class="mb-4">
+                <i class="fa-solid fa-magnifying-glass display-1 text-warning mb-3"></i>
+                <h1 class="display-4 fw-bold mb-0">Page Not Found</h1>
             </div>
+
+            <!-- Error Message -->
+            <div class="mb-4">
+                <p class=" lead mb-4">
+                    We couldn't find the page you're looking for. It may have been removed, 
+                    renamed, or didn't exist in the first place.
+                </p>
+            </div>
+
+            <!-- Search Box (Optional) -->
+            <div class="mb-4">
+                <form class="d-flex gap-2 justify-content-center" action="index.html" method="get">
+                    <input 
+                        type="text" 
+                        name="q" 
+                        class="form-control form-control-lg" 
+                        placeholder="Search for what you need..." 
+                        style="max-width: 400px;"
+                    >
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fa-solid fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="d-flex gap-3 justify-content-center flex-wrap mb-4">
+                <a href="index.html" class="btn btn-primary btn-lg px-4">
+                    <i class="fa-solid fa-home me-2"></i>Back to Home
+                </a>
+                <a href="contact.html" class="btn btn-primary btn-lg px-4">
+                    <i class="fa-solid fa-envelope me-2"></i>Contact Support
+                </a>
+            </div>
+
+            <!-- Quick Navigation Cards -->
+            <div class="mt-5 pt-4">
+                <p class=" mb-4 fw-semibold">Quick Navigation:</p>
+                <div class="row g-3">
+                    <div class="col-6 col-md-3">
+                        <a href="index.html" class="text-decoration-none">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body text-center">
+                                    <i class="fa-solid fa-home text-primary fs-2 mb-2"></i>
+                                    <p class="mb-0 small fw-semibold">Home</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a href="aboutus.html" class="text-decoration-none">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body text-center">
+                                    <i class="fa-solid fa-info-circle text-primary fs-2 mb-2"></i>
+                                    <p class="mb-0 small fw-semibold">About</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a href="services.html" class="text-decoration-none">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body text-center">
+                                    <i class="fa-solid fa-briefcase text-primary fs-2 mb-2"></i>
+                                    <p class="mb-0 small fw-semibold">Services</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a href="contactus.html" class="text-decoration-none">
+                            <div class="card h-100 border-primary">
+                                <div class="card-body text-center">
+                                    <i class="fa-solid fa-phone text-primary fs-2 mb-2"></i>
+                                    <p class="mb-0 small fw-semibold">Contact</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Text -->
+            <div class="mt-5">
+                <div class="alert alert-light border" role="alert">
+                    <i class="fa-solid fa-lightbulb text-warning me-2"></i>
+                    <strong>Need Help?</strong> If you think this is a mistake, please 
+                    <a href="contactus.html" class="alert-link">contact our support team</a>.
+                </div>
+            </div>
+
         </div>
     </div>
-</section>
-
-<!-- Team/Agents Section -->
-<section class="team-agents-section">
-    <div class="container">
-        <div class="row">
-            <!-- Agent Card 1 -->
-            <div class="col-lg-3 col-md-6">
-                <div class="agent-card">
-                    <div class="agent-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop" alt="David Wing">
-                    </div>
-                    <div class="agent-info">
-                        <div class="agent-experience">3 Years Experience</div>
-                        <h3 class="agent-name">David Wing</h3>
-                        <p class="agent-company">Eco Builders</p>
-                        <a href="tel:+1234567890" class="agent-contact">
-                            <i class="fa-solid fa-phone"></i> Call: +1 234 567 890
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agent Card 2 -->
-            <div class="col-lg-3 col-md-6">
-                <div class="agent-card">
-                    <div class="agent-image">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="Mike Hue">
-                    </div>
-                    <div class="agent-info">
-                        <div class="agent-experience">4 Years Experience</div>
-                        <h3 class="agent-name">Mike Hue</h3>
-                        <p class="agent-company">Architect Design</p>
-                        <a href="tel:+1234567890" class="agent-contact">
-                            <i class="fa-solid fa-phone"></i> Call: +1 234 567 890
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agent Card 3 -->
-            <div class="col-lg-3 col-md-6">
-                <div class="agent-card">
-                    <div class="agent-image">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop" alt="Ela Steven">
-                    </div>
-                    <div class="agent-info">
-                        <div class="agent-experience">3 Years Experience</div>
-                        <h3 class="agent-name">Ela Steven</h3>
-                        <p class="agent-company">Interior Design</p>
-                        <a href="tel:+1234567890" class="agent-contact">
-                            <i class="fa-solid fa-phone"></i> Call: +1 234 567 890
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agent Card 4 -->
-            <div class="col-lg-3 col-md-6">
-                <div class="agent-card">
-                    <div class="agent-image">
-                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop" alt="Billi Butcher">
-                    </div>
-                    <div class="agent-info">
-                        <div class="agent-experience">5 Years Experience</div>
-                        <h3 class="agent-name">Billi Butcher</h3>
-                        <p class="agent-company">Sweet Home</p>
-                        <a href="tel:+1234567890" class="agent-contact">
-                            <i class="fa-solid fa-phone"></i> Call: +1234 567 890
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Become Agent CTA Section -->
-<section class="become-agent-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="become-agent-card">
-                    <h2 class="cta-title">Become An Agent</h2>
-                    <p class="cta-description">Agent hen an unknown printer took a galley scramble</p>
-                    <a href="contactus.html" class="btn btn-primary btn-cta">Join Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-
+</div>
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -290,8 +290,13 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+
+  
+
 </body>
+
 </html>

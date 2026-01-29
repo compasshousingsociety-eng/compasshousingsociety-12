@@ -183,20 +183,37 @@
               <li class="nav-item">
                 <a class="nav-link" href="blog.html">Blog</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="project.html">Project</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="projectdetails.html"
-                  >Project Details</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="register.html">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="login.html">Login</a>
-              </li>
+              <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Services
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="services.html">All Services</a></li>
+    <li><a class="dropdown-item" href="servicedetails.html">Service Details</a></li>
+  </ul>
+</li>
+              <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Error Pages
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="404.html">404</a></li>
+    <li><a class="dropdown-item" href="page-not-found.html">Page Not Found</a></li>
+  </ul>
+</li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Account
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="register.html">Register</a></li>
+    <li><a class="dropdown-item active" href="login.html">Login</a></li>
+  </ul>
+</li>
+
+
+              
               <button
                 class="btn btn-primary"
                 onclick="window.location.href = 'contactus.html'"
@@ -327,7 +344,7 @@
                         <ul class="footer-links">
                             <li><a href="aboutus.html">About Us</a></li>
                             <li><a href="blog.html">Blog</a></li>
-                            <li><a href="project.html">Media</a></li>
+                            <li><a href="services.html">Media</a></li>
                             <li><a href="contactus.html">Contact Us</a></li>
                         </ul>
                     </div>
@@ -353,6 +370,29 @@
             </div>
         </div>
     </footer>
+<!-- Login Success Modal -->
+<div class="modal fade" id="loginSuccessModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">✅ Login Successful</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p id="loginSuccessMessage"></p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="loginContinueBtn">
+          Continue
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -362,117 +402,81 @@
     <script src="js/auth.js"></script>
 
     <script>
-        // Password Toggle for Login
-        document.getElementById('toggleLoginPassword').addEventListener('click', function () {
-            const passwordInput = document.getElementById('password');
-            const icon = this.querySelector('i');
+document.addEventListener('DOMContentLoaded', () => {
 
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                passwordInput.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        });
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('toggleLoginPassword');
 
-        // Login Form Submit
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+    /* =======================
+       EMAIL – BLOCK SPACES
+    ======================= */
+    emailInput.addEventListener('input', function () {
+        this.value = this.value.replace(/\s/g, '');
+    });
 
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
-            const rememberMe = document.getElementById('rememberMe').checked;
+    /* =======================
+       PASSWORD – BLOCK SPACES
+    ======================= */
+    passwordInput.addEventListener('input', function () {
+        this.value = this.value.replace(/\s/g, '');
+    });
 
-            // Basic validation
-            if (!email || !password) {
-                alert('Please fill in all fields');
-                return;
-            }
+    /* =======================
+       PASSWORD EYE TOGGLE
+    ======================= */
+    togglePassword.addEventListener('click', () => {
+        const icon = togglePassword.querySelector('i');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.classList.replace('fa-eye', 'fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            icon.classList.replace('fa-eye-slash', 'fa-eye');
+        }
+    });
 
-            // Email validation
-            const emailRegex = /^[A-Za-z0-9._%+-]+@gmail\.com$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid Gmail address');
-                return;
-            }
+    /* =======================
+       FORM SUBMIT
+    ======================= */
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-            // Password minimum length
-            if (password.length < 6) {
-                alert('Password must be at least 6 characters');
-                return;
-            }
+        const email = emailInput.value;
+        const password = passwordInput.value;
 
-            // Store remember me preference
-            if (rememberMe) {
-                localStorage.setItem('rememberMe', 'true');
-                localStorage.setItem('userEmail', email);
-            } else {
-                localStorage.removeItem('rememberMe');
-                localStorage.removeItem('userEmail');
-            }
+        const emailRegex = /^[A-Za-z0-9._%+-]+@gmail\.com$/;
 
-            // Show success modal and redirect
-            showLoginSuccessModal();
-        });
-
-        // Forgot Password Form
-        const forgotPasswordForm = document.getElementById('forgotPasswordForm');
-        if (forgotPasswordForm) {
-            forgotPasswordForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                const resetEmail = document.getElementById('resetEmail').value.trim();
-
-                if (!resetEmail) {
-                    alert('Please enter your email');
-                    return;
-                }
-
-                // Close modal
-                const modal = bootstrap.Modal.getInstance(document.getElementById('forgotPasswordModal'));
-                if (modal) modal.hide();
-
-                // Show success message
-                alert('Password reset link has been sent to ' + resetEmail);
-                this.reset();
-            });
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid Gmail address');
+            return;
         }
 
-        // Show Login Success Modal
-        function showLoginSuccessModal() {
-            const overlay = document.getElementById('loginSuccessOverlay');
-            const countdownEl = document.getElementById('loginCountdown');
-            overlay.classList.add('show');
-
-            let countdown = 2;
-            const timer = setInterval(() => {
-                countdown--;
-                if (countdownEl) {
-                    countdownEl.textContent = countdown;
-                }
-
-                if (countdown <= 0) {
-                    clearInterval(timer);
-                    // Redirect to dashboard or home page
-                    window.location.href = 'index.html'; // Change to your dashboard URL
-                }
-            }, 1000);
+        if (password.length === 0) {
+            alert('Password cannot be empty');
+            return;
         }
 
-        // Pre-fill email if "Remember Me" was checked
-        window.addEventListener('load', function () {
-            if (localStorage.getItem('rememberMe') === 'true') {
-                const savedEmail = localStorage.getItem('userEmail');
-                if (savedEmail) {
-                    document.getElementById('email').value = savedEmail;
-                    document.getElementById('rememberMe').checked = true;
-                }
-            }
-        });
-    </script>
+        // SUCCESS MODAL
+        const msg = document.getElementById('loginSuccessMessage');
+        msg.innerHTML = `
+            Welcome back! 👋<br>
+            <strong>Email:</strong> ${email}
+        `;
+
+        const modal = new bootstrap.Modal(
+            document.getElementById('loginSuccessModal')
+        );
+        modal.show();
+
+        document.getElementById('loginContinueBtn').onclick = () => {
+            window.location.href = 'index.html';
+        };
+    });
+
+});
+</script>
+
 
 </body>
 

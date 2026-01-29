@@ -69,20 +69,37 @@
               <li class="nav-item">
                 <a class="nav-link" href="blog.html">Blog</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="project.html">Project</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="projectdetails.html"
-                  >Project Details</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="register.html">Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
-              </li>
+              <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Services
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="services.html">All Services</a></li>
+    <li><a class="dropdown-item" href="servicedetails.html">Service Details</a></li>
+  </ul>
+</li>
+              <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Error Pages
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="404.html">404</a></li>
+    <li><a class="dropdown-item" href="page-not-found.html">Page Not Found</a></li>
+  </ul>
+</li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Account
+  </a>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="register.html">Register</a></li>
+    <li><a class="dropdown-item" href="login.html">Login</a></li>
+  </ul>
+</li>
+
+
+              
               <button
                 class="btn btn-primary"
                 onclick="window.location.href = 'contactus.html'"
@@ -103,17 +120,23 @@
                     <div class="hero-content">
                         <h1 class="hero-title">We Provide Architectural design and Construction</h1>
                         <p class="hero-description">More than 100 building and housing projects that we have built. The building owner chose us over other contractors in Jakarta, because our work is different</p>
-                        <a href="#services" class="btn btn-primary btn-cta">Discover More</a>
+                        <a href="services.html" class="btn btn-primary btn-cta">Discover More</a>
                     </div>
                 </div>
+                <div class="col-lg-6">
+                <div class="hero-content">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&h=600&fit=crop" alt="Hero" class="main-hero-img">
+                    
+                </div>
+            </div>
             </div>
         </div>
     </section>
 
     <!-- Stats Overview -->
-    <section class="stats-overview-section">
+    <section class="stats-overview-section pt-2">
         <div class="container">
-            <div class="row text-center g-4">
+            <div class="row text-center">
                 <div class="col-lg-3 col-md-6 col-6">
                     <div class="stat-box">
                         <h2 class="stat-number-large">300+</h2>
@@ -143,7 +166,7 @@
     </section>
 
     <!-- Company Mission -->
-    <section class="mission-section">
+    <section class="mission-section p-0">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
@@ -164,7 +187,7 @@
                 </div>
             </div>
             
-            <div class="row g-4">
+            <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-icon">
@@ -199,7 +222,7 @@
     </section>
 
     <!-- Why Choose Us Section -->
-    <section class="why-choose-section">
+    <section class="why-choose-section pt-2">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-lg-8">
@@ -387,10 +410,10 @@
                                 <h4 class="client-name">Jacob Molen</h4>
                             </div>
                         </div>
-                        <div class="slider-controls">
+                        <!-- <div class="slider-controls">
                             <button class="slider-btn prev">←</button>
                             <button class="slider-btn next">→</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -435,7 +458,7 @@
                         <ul class="footer-links">
                             <li><a href="aboutus.html">About Us</a></li>
                             <li><a href="blog.html">Blog</a></li>
-                            <li><a href="project.html">Media</a></li>
+                            <li><a href="services.html">Media</a></li>
                             <li><a href="contactus.html">Contact Us</a></li>
                         </ul>
                     </div>

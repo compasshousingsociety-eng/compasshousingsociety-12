@@ -230,15 +230,15 @@
 }
 
 .google-btn:hover {
-    background-color: #DB4437;
-    color: var(--white);
-    border-color: #DB4437;
+    /* background-color: #DB4437; */
+    /* color: var(--white); */
+    /* border-color: #DB4437; */
 }
 
 .facebook-btn:hover {
-    background-color: #1877F2;
+    /* background-color: #1877F2;
     color: var(--white);
-    border-color: #1877F2;
+    border-color: #1877F2; */
 }
 
 /* Auth Footer */
