@@ -111,22 +111,64 @@ function updateActiveLink() {
 window.addEventListener('scroll', updateActiveLink);
 
 // Newsletter Form Submission
-const newsletterForm = document.querySelector('.newsletter-form');
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
+
+const newsletterForms = document.querySelectorAll('.newsletter-form');
+
+newsletterForms.forEach(function(form) {
+    const emailInput = form.querySelector('input[type="email"]');
+
+    // 1. LIVE: No spaces in email while typing
+    if (emailInput) {
+        emailInput.addEventListener('input', function() {
+            this.value = this.value.replace(/\s/g, '');
+        });
+    }
+
+    // 2. VALIDATION: Form submit logic
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
-        const emailInput = this.querySelector('input[type="email"]');
-        const email = emailInput.value;
         
-        // Simple validation
-        if (email && email.includes('@gmail.com')) {
-            alert('Thank you for subscribing! We will send updates to: ' + email);
-            this.reset();
-        } else {
-            alert('Please enter a valid email address(Ex: example@gmail.com).');
+        const email = emailInput.value.trim();
+        const gmailRegex = /^[A-Za-z0-9._%+-]+@gmail\.com$/;
+
+        if (!gmailRegex.test(email)) {
+            alert('Please enter a valid Gmail address (Ex: example@gmail.com) with no spaces.');
+            return;
         }
+
+        // Success Path
+        console.log('Newsletter subscription:', email);
+        
+        // If you have a showNotification function defined elsewhere
+        if (typeof showNotification === "function") {
+            showNotification('Successfully subscribed to newsletter!');
+        } else {
+            alert('Successfully subscribed!');
+        }
+
+        // Reset the form
+        form.reset();
+        emailInput.value = '';
     });
-}
+});
+
+
+// const newsletterForm = document.querySelector('.newsletter-form');
+// if (newsletterForm) {
+//     newsletterForm.addEventListener('submit', function(e) {
+//         e.preventDefault();
+//         const emailInput = this.querySelector('input[type="email"]');
+//         const email = emailInput.value;
+        
+//         // Simple validation
+//         if (email && email.includes('@gmail.com')) {
+//             alert('Thank you for subscribing! We will send updates to: ' + email);
+//             this.reset();
+//         } else {
+//             alert('Please enter a valid email address(Ex: example@gmail.com).');
+//         }
+//     });
+// }
 
 // Property Card Animation on Scroll
 const observerOptions = {
