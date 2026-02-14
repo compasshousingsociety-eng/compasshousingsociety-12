@@ -116,10 +116,14 @@ if (newsletterForm) {
     newsletterForm.addEventListener('submit', function(e) {
         e.preventDefault();
         const emailInput = this.querySelector('input[type="email"]');
+        const email = emailInput.value;
         
-        if (emailInput.value) {
-            alert('Thank you for subscribing! We will keep you updated.');
-            emailInput.value = '';
+        // Simple validation
+        if (email && email.includes('@gmail.com')) {
+            alert('Thank you for subscribing! We will send updates to: ' + email);
+            this.reset();
+        } else {
+            alert('Please enter a valid email address(Ex: example@gmail.com).');
         }
     });
 }
@@ -230,3 +234,48 @@ if (projectSearch) {
 //         window.scrollTo({ top: 0, behavior: 'smooth' });
 //     }
 // }
+
+
+// Mortgage Calculator
+function calculateMortgage() {
+    const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+    const interestRate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+    const loanPeriod = parseFloat(document.getElementById('loanPeriod').value) * 12;
+    
+    const monthlyPayment = (loanAmount * interestRate * Math.pow(1 + interestRate, loanPeriod)) / 
+                          (Math.pow(1 + interestRate, loanPeriod) - 1);
+    
+    document.getElementById('monthlyPayment').textContent = '₹' + monthlyPayment.toFixed(2);
+    document.getElementById('mortgageResult').style.display = 'block';
+}
+
+function shareProperty() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'Check out this property!',
+            text: 'I found this amazing property and thought you might like it.',
+            url: window.location.href // Shares the current page link
+        })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+    } else {
+        // Fallback for browsers that don't support native sharing
+        alert("Sharing not supported on this browser. You can copy the URL: " + window.location.href);
+    }
+}
+
+function toggleSave() {
+    const icon = document.getElementById('heartIcon');
+    
+    // Toggle between regular (hollow) and solid heart
+    if (icon.classList.contains('fa-regular')) {
+        icon.classList.replace('fa-regular', 'fa-solid');
+        icon.style.color = 'red';
+        alert('Property saved to your favorites!');
+        localStorage.setItem('property_saved', 'true');
+    } else {
+        icon.classList.replace('fa-solid', 'fa-regular');
+        icon.style.color = '';
+        localStorage.setItem('property_saved', 'false');
+    }
+}

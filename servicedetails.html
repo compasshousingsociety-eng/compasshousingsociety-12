@@ -191,7 +191,7 @@
                             <p class="project-location">
                                 <i class="fa-solid fa-location-dot"></i> 1800-1818 79th Street, Brooklyn, New York
                             </p>
-                            <div class="project-price-tag">$395,000</div>
+                            <div class="project-price-tag">₹395,000</div>
                         </div>
 
                         <!-- Quick Info -->
@@ -343,13 +343,13 @@
 
                         <!-- Quick Actions -->
                         <div class="quick-actions-card">
-                            <button class="action-btn">
-                                <i class="fa-solid fa-heart"></i> Save Property
+                            <button class="action-btn" onclick="toggleSave()">
+                                <i id="heartIcon" class="fa-regular fa-heart"></i> Save Property
                             </button>
-                            <button class="action-btn">
+                            <button class="action-btn" onclick="shareProperty()">
                                 <i class="fa-solid fa-share-nodes"></i> Share
                             </button>
-                            <button class="action-btn">
+                            <button class="action-btn" onclick="window.print()">
                                 <i class="fa-solid fa-print"></i> Print
                             </button>
                         </div>
@@ -373,7 +373,7 @@
                                 <button type="button" class="btn btn-primary w-100"
                                     onclick="calculateMortgage()">Calculate</button>
                                 <div class="calculation-result" id="mortgageResult" style="display: none;">
-                                    <p>Monthly Payment: <strong id="monthlyPayment">$0</strong></p>
+                                    <p>Monthly Payment: <strong id="monthlyPayment">₹0</strong></p>
                                 </div>
                             </form>
                         </div>
@@ -386,7 +386,7 @@
                                     alt="Similar Property">
                                 <div class="similar-property-info">
                                     <h5>Modern Apartment</h5>
-                                    <p class="similar-price">$280,000</p>
+                                    <p class="similar-price">₹280,000</p>
                                     <p class="similar-location">Brooklyn, NY</p>
                                 </div>
                             </div>
@@ -395,7 +395,7 @@
                                     alt="Similar Property">
                                 <div class="similar-property-info">
                                     <h5>Family House</h5>
-                                    <p class="similar-price">$420,000</p>
+                                    <p class="similar-price">₹420,000</p>
                                     <p class="similar-location">Manhattan, NY</p>
                                 </div>
                             </div>
