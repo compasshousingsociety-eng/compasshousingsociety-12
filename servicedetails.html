@@ -21,6 +21,19 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/projectdetails-styles.css">
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    opacity: 1;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+    </style>
 </head>
 
 <body>
@@ -357,7 +370,7 @@
                         <!-- Calculator Card -->
                         <div class="calculator-card">
                             <h3 class="card-title">Mortgage Calculator</h3>
-                            <form id="mortgageCalculator">
+                            <form id="mortgageCalculator" onsubmit="event.preventDefault(); calculateMortgage();">
                                 <div class="form-group mb-3">
                                     <label class="form-label">Loan Amount *</label>
                                     <input type="number" class="form-control" value="395000" id="loanAmount" required>
@@ -370,8 +383,8 @@
                                     <label class="form-label">Loan Period (Years) *</label>
                                     <input type="number" class="form-control" value="30" id="loanPeriod" required>
                                 </div>
-                                <button type="button" class="btn btn-primary w-100"
-                                    onclick="calculateMortgage()">Calculate</button>
+                                <button type="submit" class="btn btn-primary w-100"
+                                    >Calculate</button>
                                 <div class="calculation-result" id="mortgageResult" style="display: none;">
                                     <p>Monthly Payment: <strong id="monthlyPayment">₹0</strong></p>
                                 </div>

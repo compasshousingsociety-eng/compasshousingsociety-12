@@ -146,6 +146,8 @@
                         class="form-control form-control-lg" 
                         placeholder="Search for what you need..." 
                         style="max-width: 400px;"
+                        required
+                        autocomplete="off" 
                     >
                     <button type="submit" class="btn btn-primary btn-lg">
                         <i class="fa-solid fa-search"></i>
@@ -294,6 +296,14 @@
     <!-- Custom JS -->
     <script src="js/script.js"></script>
     <script src="js/auth.js"></script>
+    <script>
+    window.addEventListener('pageshow', function(event) {
+    // This clears the search input every time the user comes back to the page
+    document.getElementById('searchInput').value = '';
+});
+
+</script>
+
 
   
 

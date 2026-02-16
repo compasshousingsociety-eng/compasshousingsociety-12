@@ -104,8 +104,8 @@ section {
 }
 
 .logo-text {
-    font-size: 28px;
-    font-weight: 700;
+    /* font-size: 28px; */
+    /* font-weight: 700; */
     color: var(--primary-color);
 }
 
@@ -926,8 +926,8 @@ position: relative;
 }
 
 body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    /* background-color: var(--bg-primary); */
+    /* color: var(--text-primary); */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -1044,7 +1044,8 @@ body {
 }
 
 [dark-theme="dark"] .nav-link:hover,
-[data-theme="dark"] .nav-link.active {
+[data-theme="dark"] .nav-link.active,
+[data-theme="dark"] .nav-link.dropdown-toggle.show {
     color: var(--primary-color);
 }
 
