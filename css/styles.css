@@ -10,7 +10,7 @@ body::before {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0.5;
+            opacity: 0.3;
             z-index: -1;
             pointer-events: none;
         }
@@ -34,7 +34,7 @@ body::before {
 
 .dropdown-item:hover {
     /* background-color: var(--bg-secondary); */
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
 }
 
 /* Hover to show dropdown on desktop */
